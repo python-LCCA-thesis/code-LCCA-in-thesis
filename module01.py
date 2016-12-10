@@ -1,47 +1,43 @@
 import numpy as np
 import random
 '''
-
-    hl = heaviest_load
     t = time_design
-    vdf = vehicle_design_traffic
-    nsafy = numbers_single_axis_first_year
-    n30 = numbers_single_axle_in_3000
-    als = axle_load_standards (kN)
+    n1s = vehicle_design_traffic
+    ADTT = numbers_single_axis_first_year
+    n = numbers_single_axle_in_3000
+    ps = axle_load_standards (kN)
     gr = growth_rate
     dc = distribution_coefficient
-    pa = percent_axle
-    vfy = ADTT
+    pi = percent_axle
     ne = vehicle_total
-    cc = convesion_coefficient
+    kpi = convesion_coefficient
     nsa []
     
+'''
     
-    '''
-    
-def calculate_vdf(nsa,pa,nsafy,n30):
-    als = 100
-    cc = [(i/als)**16 for i in nsa]
-    cc = np.array(cc)
-    pa = np.array(pa)
-    tmp_sum = sum( cc * pa)
-    return nsafy * (n30 / 3000) * tmp_sum
+def calculate_n1s(PI,pi,ADTT,n):
+    ps = 100
+    kpi = [(i/ps)**16 for i in PI]
+    kpi = np.array(kpi)
+    pi = np.array(pi)
+    tmp_sum = sum( kpi * pi)
+    return ADTT * (n / 3000) * tmp_sum
     
 # dummy data ##########
-nsa = [100,200,300]   #
-pa = [0.45,0.3,0.25]  #
-nsafy = 2.8 * 10 ** 3 #
-n30 = 500             #
+PI = [100,200,300]    #
+pi = [0.45,0.3,0.25]  #
+ADTT = 2.8 * 10 ** 3  #
+n = 500               #
 #######################
-vdf = calculate_vdf(nsa,pa,nsafy,n30)
-print(vdf)
+n1s = calculate_n1s(PI,pi,ADTT,n)
+print(n1s)
 ######################
-def ne(vdf,gr,t,dc):
-    ne = ((vdf * ((1 + gr)** t - 1) * 365) * dc) / gr
+def ne(n1s,gr,t,dc):
+    ne = ((n1s * ((1 + gr)** t - 1) * 365) * dc) / gr
     return ne
 
 # dummy data ########
 gr = 0.012
 t = 30
 dc = random.uniform(0.17,0.22)
-print(ne(vdf,gr,t,dc))
+print(ne(n1s,gr,t,dc))
