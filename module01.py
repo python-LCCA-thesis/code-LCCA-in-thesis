@@ -1,6 +1,7 @@
 import numpy as np
 import random
 '''
+
     hl = heaviest_load
     t = time_design
     vdf = vehicle_design_traffic
