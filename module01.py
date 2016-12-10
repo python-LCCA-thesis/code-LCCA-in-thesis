@@ -11,8 +11,7 @@ import random
     pi = percent_axle
     ne = vehicle_total
     kpi = convesion_coefficient
-    nsa []
-    
+    PI = heavy_load_axle    
 '''
     
 def calculate_n1s(PI,pi,ADTT,n):
