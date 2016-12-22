@@ -9,7 +9,7 @@ import random
     gr = growth_rate
     dc = distribution_coefficient
     pi = percent_axle
-    ne = vehicle_total
+    Ne = vehicle_total
     kpi = convesion_coefficient
     PI = heavy_load_axle    
 '''
@@ -31,12 +31,12 @@ n = 500               #
 n1s = calculate_n1s(PI,pi,ADTT,n)
 print(n1s)
 ######################
-def ne(n1s,gr,t,dc):
-    ne = ((n1s * ((1 + gr)** t - 1) * 365) * dc) / gr
-    return ne
+def Ne(n1s,gr,t,dc):
+    Ne = ((n1s * ((1 + gr)** t - 1) * 365) * dc) / gr
+    return Ne
 
 # dummy data ########
 gr = 0.012
 t = 30
 dc = random.uniform(0.17,0.22)
-print(ne(n1s,gr,t,dc))
+print(Ne(n1s,gr,t,dc))
