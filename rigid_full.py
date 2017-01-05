@@ -133,10 +133,12 @@ print(sub_thickness)
 
 if base_material == 'poor concrete or roller compacted concrete':
 #total thichkness
+	'''
 	hi1 = sub_thickness
 	hi2 = base_thickness
 	hi3 = pave_thickness
 	hx = RIGID_PAVE.case01.total_thickness_layers(hi)
+	'''
 	print(hi)
 
 

@@ -15,6 +15,7 @@ max_very = 0.32
 min_very = 0.28
 max_heavy = 0.28
 min_heavy = 0.25
+<<<<<<< HEAD
 '''
 traffic_level = ('extreme','very','heavy')
 thick_min = (min_extr, min_very, min_heavy)
@@ -23,6 +24,18 @@ thick_max = (1, max_very, max_heavy)
 datas = [('extreme',0.32,1.0),('very',0.28,0.32),('heavy',0.25,0.28)]
 for data in datas:
 	query = 'insert into pave_thickness(traffic_level,thick_min,thick_max) values("%s",%f,%f)' %(data[0],data[1],data[2])
+=======
+
+traffic_level = ('extreme','very','heavy')
+thick_min = (min_extr, min_very, min_heavy)
+thick_max = (0, max_very, max_heavy)
+ 
+for i in thick_max:
+	if i == 0:
+		query = 'insert into pave_thickness(traffic_level,thick_min,thick_max) values("%s",%d,%d)' %(traffic_level[thick_max.index(i)],thick_min[thick_max.index(i)], 0)
+	else:
+		query = 'insert into pave_thickness(traffic_level,thick_min,thick_max) values("%s",%d,%d)' %(traffic_level[thick_max.index(i)],thick_min[thick_max.index(i)], i)
+>>>>>>> 013cc39d199e2ba4deb41f35b7e755cb360473f9
 	print(query)
 	cur.execute(query)
 	db.commit()

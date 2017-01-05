@@ -14,12 +14,20 @@ import math
 
 def total_thickness_layers(hi):
     hx = sum (hi)
+<<<<<<< HEAD
     return hx
+=======
+    return sum (hi)
+>>>>>>> 013cc39d199e2ba4deb41f35b7e755cb360473f9
 
 def regression_coefficient(hi):
     hx = sum (hi)
     a = 0.86 + 0.26 * math.log(hx, np.e)
+<<<<<<< HEAD
     return a
+=======
+    return 0.86 + 0.26 * math.log(hx, np.e)
+>>>>>>> 013cc39d199e2ba4deb41f35b7e755cb360473f9
 
 def elastic_module_platform_subbase(hi,Ei,hx):
     a = 0.86 + 0.26 * math.log(hx, np.e)
@@ -29,13 +37,19 @@ def elastic_module_platform_subbase(hi,Ei,hx):
     Ex = (sum ( hi ** 2 ) * Ei) / (sum (hi ** 2))
     return ((Ex / E0) ** a) * E0
 
+<<<<<<< HEAD
 '''
+=======
+>>>>>>> 013cc39d199e2ba4deb41f35b7e755cb360473f9
 # dummy data ########################
 # hi & Ei from example1 in QĐ3230   #
 hi = [0.2]                          #
 Ei = [300]                          #
 #####################################
+<<<<<<< HEAD
 '''
+=======
+>>>>>>> 013cc39d199e2ba4deb41f35b7e755cb360473f9
 
 a = regression_coefficient(hi)
 hx = total_thickness_layers(hi)
